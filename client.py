@@ -5,14 +5,10 @@ import select
 import sys 
 
 def client():
-    # Check if the command to run the script has the right parameters
-    if len(sys.argv) != 3: 
-        print("Please insert: script name, host, port number.")
-        exit() 
 
-    # Get the parameters
+    # Get the parameters the user inputs
     host = str(sys.argv[1]) 
-    port = int(sys.argv[2]) 
+    port = int(sys.argv[2])
 
     # Server connection
     server_connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
@@ -21,16 +17,16 @@ def client():
     try:
         server_connection.connect((host, port))
     except:
-        print("Cannot connect to this server.")
+        print("Connection failed.")
         sys.exit()
 
-    print("Connected to host. You may send messages now.")
+    print("Connection established.")
     
     #Prompt for a name, and use that name in the chat
     name = raw_input("What is your name: ")
  
     #Clean buffer
-    #sys.stdout.flush()
+    sys.stdout.flush()
 
     while True: 
         # List containing inputs
