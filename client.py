@@ -22,10 +22,10 @@ def client():
 
     print("Connection established.")
     
-    #Prompt for a name, and use that name in the chat
+    # Prompt for a name, and use that name in the chat
     name = raw_input("What is your name: ")
  
-    #Clean buffer
+    # Clean buffer
     sys.stdout.flush()
 
     while True: 
@@ -44,12 +44,11 @@ def client():
                 else:
                     sys.stdout.write(message)
                     sys.stdout.write(name + "-> "); sys.stdout.flush()
-                    #print(message)
             else: 
                 message = sys.stdin.readline().replace('\n', '\r\n') 
                 server_connection.send(message) 
                 sys.stdout.flush() 
-    #server_connection.close()
+    server_connection.close()
 
 if __name__ == "__main__":
     sys.exit(client()) 
