@@ -1,1 +1,2 @@
-# client-server-talk
+# Description
+Simple chat application using sockets
